@@ -1,0 +1,16 @@
+<!-- students/templates/students/personal_info.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>بيانات الطالب</title>
+</head>
+<body>
+    <h1>أهلاً {{ student.name }}</h1>
+    <p><strong>Username:</strong> {{ student.user.username }}</p>
+    <p><strong>Email:</strong> {{ student.user.email }}</p>
+    <p><strong>Mobile:</strong> {{ student.mobile }}</p>
+    <p><strong>National ID:</strong> {{ student.national_id }}</p>
+    <p><strong>Structure:</strong> {{ student.structure }}</p>
+</body>
+</html>

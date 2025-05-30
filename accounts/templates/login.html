@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script>
+        async function loginUser(event) {
+            event.preventDefault();
+
+            const username = document.querySelector("input[name='username']").value;
+            const password = document.querySelector("input[name='password']").value;
+
+            const response = await fetch("http://127.0.0.1:8000/api/login/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("Login successful!");
+                localStorage.setItem("access", data.access);  // نخزن التوكن
+                window.location.href = "/dashboard/pers-info/";  // دخليه على صفحة البيانات
+            } else {
+                alert("Login failed: " + data.detail);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form onsubmit="loginUser(event)">
+        <label>Username:</label>
+        <input type="text" name="username"><br><br>
+        <label>Password:</label>
+        <input type="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
