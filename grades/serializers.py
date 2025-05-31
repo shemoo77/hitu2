@@ -9,7 +9,7 @@ class StudentGradeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = StudentGrade
-        fields = ['id', 'student', 'student_name', 'course_name', 'score', 'percentage', 'letter_grade']
+        fields = ['student_name', 'course_name', 'score', 'percentage', 'letter_grade']
 
 class GradeSheetSerializer(serializers.ModelSerializer):
     course_name = serializers.CharField(source='course.name', read_only=True)
@@ -17,4 +17,4 @@ class GradeSheetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GradeSheet
-        fields = ['id', 'course', 'course_name', 'student_grades']
+        fields = ['course', 'course_name', 'student_grades']

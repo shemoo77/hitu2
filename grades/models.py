@@ -27,7 +27,7 @@ class StudentGrade(models.Model):
     def save(self, *args, **kwargs):
         full_score = self.grade_sheet.full_score or 100
         if full_score > 0:
-            self.percentage = (self.score / full_score) * 100
+            self.percentage = round((self.score / full_score) * 100, 2)
         else:
             self.percentage = 0
 
