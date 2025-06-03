@@ -19,7 +19,7 @@ class GradeSheetAdmin(admin.ModelAdmin):
 # لو عايزة تعرضي StudentGrade لوحدها كمان
 @admin.register(StudentGrade)
 class StudentGradeAdmin(admin.ModelAdmin):
-    list_display = ('student', 'grade_sheet', 'score', 'percentage', 'letter_grade')
+    list_display = ('student', 'grade_sheet', 'midterm_score', 'section_exam_score', 'final_exam_score', 'year_work_score', 'total_score', 'percentage', 'letter_grade')
     readonly_fields = ('percentage', 'letter_grade')
     list_filter = ('grade_sheet__course',)
     search_fields = ('student__name', 'grade_sheet__course__name')
