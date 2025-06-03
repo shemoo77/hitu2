@@ -7,7 +7,7 @@ class Course(models.Model):
     department = models.CharField(max_length=25,choices=DepartmentChoices.choices)  # القسم باستخدام DepartmentChoices
     academic_year = models.CharField(max_length=6, choices=AcademicYearChoices.choices)  # السنة الدراسية
     semester = models.CharField(max_length=6, choices=SemesterChoices.choices)  # الترم
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE ,blank=True, null=True)  # الدكتور المسؤول
+    doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL ,blank=True, null=True)  # الدكتور المسؤول
     drive_link = models.URLField(max_length=500, blank=True, null=True)  # رابط جوجل درايف للمادة (اختياري)
 
     def __str__(self):
